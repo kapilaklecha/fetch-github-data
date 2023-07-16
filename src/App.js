@@ -10,12 +10,15 @@ function App() {
   const debouncedSearchValue = useDebounce(searchValue, 1000);
 
   return (
-    <div className="App">
+    <div className="app">
       <PartyComponent
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        className="input"
       />
-      <List searchTerm={debouncedSearchValue} />
+      <div className="list">
+        <List searchTerm={debouncedSearchValue} />
+      </div>
     </div>
   );
 }

@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchGithubUser,
+  selectUserData,
+  getUserStatus,
+} from "../features/userSlice";
 
-const List = () => {
+const List = ({ searchTerm }) => {
+  const userData = useSelector(selectUserData);
+  const status = useSelector(getUserStatus);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (searchTerm) {
+      dispatch(fetchGithubUser(searchTerm));
+    }
+  }, [dispatch, searchTerm]);
+
+  if (status === "loading") {
+    return <p>Loading user data...</p>;
+  }
+
   return (
     <div className="App">
       <h1>Github User Data:</h1>
 
       <div>
-        <p>Name: kapil</p>
-        <p>Company: srf</p>
-        <p>Email: kapil@gmail.com</p>
+        {userData && (
+          <>
+            <p>Name: {userData.name}</p>
+            <p>Company: {userData.company}</p>
+            <p>Email: {userData.email}</p>
 
-        <p>Followers: 45</p>
-        <p>Following: 25</p>
+            <p>Followers: {userData.followers}</p>
+            <p>Following: {userData.following}</p>
+          </>
+        )}
       </div>
-      <p>Loading user data...</p>
     </div>
   );
 };
