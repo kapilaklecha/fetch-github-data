@@ -1,0 +1,22 @@
+.PartyComponent {
+    height: 41.5px;
+    width: 276px;
+    top: 78px;
+    left: 114px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+
+}
+
+.logo {
+    align-self:last baseline;
+    margin-right: 5px;
+    color: gray;
+}
+
+.text-area:focus {
+    outline-color: gray;
+}
