@@ -1,3 +1,11 @@
+# About this project
+This project fetch user data from GitHub API and renders on the screen.
+It is build so that when user is typing fast in the searchbox request is not sent on every key stroke but when user write full name.
+It kind of works like Auto Suggest.
+It uses Redux. And if data is available in Redux it will not send any request to the server but take it from Redux.
+Tech used in it are: ReactJs, Redux/Redux Toolkit,Redux Thunk and Material UI.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
